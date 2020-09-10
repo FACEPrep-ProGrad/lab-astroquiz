@@ -14,7 +14,6 @@
     All The Best!</p>
      <div class="input">
     <form id="myform" action="${pageContext.request.contextPath}/eligible" method="post">
-       
             <span class="labelClass">First name: </span><input type="text" name="name" required><br><br>
             <span class="labelClass">Mobile Number: </span><input type="text" name="Number" required><br><br>
             <span class="labelClass">Age: </span><input type="text" name="age" required><br><br>
