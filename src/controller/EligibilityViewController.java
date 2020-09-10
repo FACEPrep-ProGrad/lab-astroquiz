@@ -8,9 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.prism.impl.shape.BasicEllipseRep;
+
 import model.User;
+import utility.EligibilityCheck;
 import utility.BasicEligibility;
-import utility.EligibiltyCheck;
 
 @WebServlet(urlPatterns= {"/eligible"})
 public class EligibilityViewController extends HttpServlet {
@@ -45,6 +47,11 @@ public class EligibilityViewController extends HttpServlet {
 		user.setAge(age);
 		user.setHeight(height);
 		user.setWeight(weight);
+		user.setCountry(country);
+		
+		BasicEligibility basicEligibility = new EligibilityCheck();
+		
+		boolean spaceEligible = basicEligibility.basicEligibilityCheck(user);
 		
 		System.out.println(spaceEligible);
 			if(spaceEligible)
