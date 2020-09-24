@@ -26,6 +26,7 @@ public class EligibilityViewController extends HttpServlet {
 		
 		RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp");
 		rd.forward(request, response);
+		System.out.println("1");
 	}
 
 
@@ -37,7 +38,7 @@ public class EligibilityViewController extends HttpServlet {
 		int height=Integer.parseInt(request.getParameter("height"));
 		int weight=Integer.parseInt(request.getParameter("weight"));
 		String country=request.getParameter("country");
-		
+		//System.out.println("2");
 	
 		User user = new User(name,number,age,height,weight,country);
 		user.setName(name);
@@ -46,7 +47,12 @@ public class EligibilityViewController extends HttpServlet {
 		user.setHeight(height);
 		user.setWeight(weight);
 		
-		System.out.println(spaceEligible);
+		
+		EligibiltyCheck obj = new EligibiltyCheck();
+		boolean spaceEligible =obj.basicEligibilityCheck(user);
+		
+		
+		System.out.println(name);
 			if(spaceEligible)
 			{
 				RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/quiz.jsp");
