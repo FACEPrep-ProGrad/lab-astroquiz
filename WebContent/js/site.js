@@ -80,7 +80,7 @@ let questions = [
 	  {
 	    id: 8,
 	    question: "Complete the formula: Speed = _____ / Time",
-	    answer: "float;",
+	    answer: "Distance",
 	    options: [
 	      "Mass",
 	      "Direction",
@@ -119,6 +119,7 @@ function next() {
   if (user_answer == questions[question_count].answer) {
     points += 10;
     document.getElementById("myInput").value = points;
+    console.log(points);
     sessionStorage.setItem("points", points);
   }
   else{
@@ -132,7 +133,7 @@ function next() {
 }
 function show(count) {
   let question = document.getElementById("questions");
-  let [first, second, third, fourth] = questions[count].options;
+  let [first, second, third, fourth] = questions[question_count].options;
 
   question.innerHTML = `
   <h2>Q${count + 1}. ${questions[count].question}</h2>
