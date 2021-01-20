@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.User;
 import utility.BasicEligibility;
-import utility.EligibiltyCheck;
+import utility.EligibilityCheck;
+
 
 @WebServlet(urlPatterns= {"/eligible"})
 public class EligibilityViewController extends HttpServlet {
@@ -45,6 +47,10 @@ public class EligibilityViewController extends HttpServlet {
 		user.setAge(age);
 		user.setHeight(height);
 		user.setWeight(weight);
+		
+		EligibilityCheck obj=new EligibilityCheck();
+		boolean spaceEligible= obj.basicEligibilityCheck( user);
+		
 		
 		System.out.println(spaceEligible);
 			if(spaceEligible)
