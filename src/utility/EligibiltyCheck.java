@@ -14,7 +14,7 @@ public class EligibiltyCheck extends BasicEligibility implements EligibilityInte
 
 @Override
 public boolean checkUser(User user) {
-	if((18 <= user.getAge() && user.getAge() <= 35) && (155 <=user.getHeight() && user.getHeight()<=170 ) && (55<= user.getWeight() && user.getWeight() <= 90) && user.getCountry() == "ProGrad") {
+	if((18 <= user.getAge() && user.getAge() <= 35) && (155 <=user.getHeight() && user.getHeight()<=170 ) && (55<= user.getWeight() && user.getWeight() <= 90) && user.getCountry().equals("ProGrad")) {
 		
 		System.out.println("Name : "+user.getName());
 		System.out.println("Age : "+user.getAge());
